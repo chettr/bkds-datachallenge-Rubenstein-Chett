@@ -1,0 +1,42 @@
+---
+title: "statistics-test.Rmd"
+author: "Chett Rubenstein"
+date: "May 17, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. The height (cm) of six random people in Williamsburg is sampled as the following: 178, 163, 168, 167, 170, 150
+<pre>
+a. Calculate the Five Number Summary: Min, First Quartile (Q1), Sample Median, Third Quartile (Q2), Maximum
+b. Calculate the Sample Mean
+c. Calculate the Interquartile Range (IQR)
+d. Which, if any, of the observations are possible outliers?
+e. Create a boxplot of the observations
+f. Calculate the sample variance and sample standard deviation
+</pre>
+
+```{r question1}
+height <- c(178, 163, 168, 167, 170, 150)
+summary(height)
+mean(height)
+IQR(height)
+outlier_values <- boxplot.stats(height)$out  # outlier values.
+boxplot(height, main="Williamsburg Height", boxwex=0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+var(height)
+sd(height)
+```
+
+## 2. Group the following data types as either Metric, Non-Metric, or Inbetween (Metric implies we can calculate a "distance" between any two random observations), and categorize each one as either Continuous, Nominal/Categorical, Ordinal, or Interval/Discrete.
+<pre>
+i. All real numbers - Metric
+ii. {First Place, Second Place, Third Place} - Non-Metric
+iii. {Green, Blue, Yellow, Brown}
+iv. Five point scale: 1, 2, 3, 4, 5
+v. Ranking of attitudes on a 5 point scale: strongly disagree to strongly agree
+</pre>
+
